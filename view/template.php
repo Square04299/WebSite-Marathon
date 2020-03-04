@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <base href="<?= $webRoot ?>" >
-        <!-- <link rel="stylesheet" href="Content/style.css" /> -->
+        <link rel="stylesheet" href="Content/style.css" />
         <title><?= $title ?></title>
     </head>
     <body>

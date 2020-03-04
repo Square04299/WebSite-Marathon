@@ -17,8 +17,8 @@ class User extends Model {
      */
     public function connect($login, $pwd)
     {
-        $sql = "select UTIL_ID from T_UTILISATEUR where UTIL_LOGIN=? and UTIL_MDP=?";
-        $sql = "select U_ID from T_USER where U_NOM=? and U_PASSWORD=?";
+        //$sql = "select UTIL_ID from T_UTILISATEUR where UTIL_LOGIN=? and UTIL_MDP=?";
+        $sql = "select U_ID from T_USER where U_NOM='$login' and U_PASSWORD='$pwd'";
         $user = $this->executeRequest($sql, array($login, $pwd));
         return ($user->rowCount() == 1);
     }
@@ -33,8 +33,10 @@ class User extends Model {
      */
     public function getUser($login, $pwd)
     {
-        $sql = "select UTIL_ID as idUser, UTIL_LOGIN as login, UTIL_MDP as mdp 
-            from T_UTILISATEUR where UTIL_LOGIN=? and UTIL_MDP=?";
+        //$sql = "select UTIL_ID as idUser, UTIL_LOGIN as login, UTIL_MDP as mdp 
+            //from T_UTILISATEUR where UTIL_LOGIN=? and UTIL_MDP=?";
+        $sql = "select U_ID as idUser, U_NOM as login, U_PASSWORD as mdp 
+            from T_USER where U_NOM='$login' and U_PASSWORD='$pwd'";
         $user = $this->executeRequest($sql, array($login, $pwd));
         if ($user->rowCount() == 1)
             return $user->fetch();  // Accès à la première ligne de résultat

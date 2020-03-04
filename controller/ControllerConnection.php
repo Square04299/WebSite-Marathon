@@ -23,15 +23,16 @@ class ControllerConnection extends Controller
 
     public function connect()
     {
-        if ($this->request->existingParameter("login") && $this->request->existingParameter("mdp")) {
+        if ($this->request->existingParameter("login") && $this->request->existingParameter("password")) {
             $login = $this->request->getParameter("login");
-            $pwd = $this->request->getParameter("mdp");
+            $pwd = $this->request->getParameter("password");
             if ($this->user->connect($login, $pwd)) {
                 $user = $this->user->getUser($login, $pwd);
                 $this->request->getSession()->setAttribute("idUser",
                         $user['idUser']);
                 $this->request->getSession()->setAttribute("login",
                         $user['login']);
+            //Check if the account has admin privillages
                 $this->redirect("admin");
             }
             else
