@@ -29,9 +29,11 @@ create table T_REGION (
 
 create table T_COURSE (
   C_ID_COURSE integer primary key not null,
-  C_LIEUX varchar(100) not null,
-  C_DISTANCE integer not null,
-  CONSTRAINT FK_LIEUX foreign key(C_LIEUX) references T_REGION(R_LIEUX)
+  C_LIEUX_DEPART varchar(100) not null,
+  C_LIEUX_ARRIVER varchar(100) not null,
+  C_DATE_DEBUT datetime,
+  CONSTRAINT FK_LIEUX_DEPART foreign key(C_LIEUX_DEPART) references T_REGION(R_LIEUX),
+  CONSTRAINT FK_LIEUX_ARRIVER foreign key(C_LIEUX_ARRIVER) references T_REGION(R_LIEUX)
 );
 
 create table T_PATICIPANT (
