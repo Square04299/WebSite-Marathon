@@ -18,6 +18,7 @@ class User extends Model {
     public function connect($login, $pwd)
     {
         $sql = "select UTIL_ID from T_UTILISATEUR where UTIL_LOGIN=? and UTIL_MDP=?";
+        $sql = "select U_ID from T_USER where U_NOM=? and U_PASSWORD=?";
         $user = $this->executeRequest($sql, array($login, $pwd));
         return ($user->rowCount() == 1);
     }

@@ -1,6 +1,16 @@
 <?php $this->title = "Connexion" ?>
 
 <link rel="stylesheet" href="Content/connection.css" />
+<div class="info">
+  <ul>
+    <li>Username : user</li>
+    <li>Password : user</li>
+  </ul>
+  <ul>
+    <li>Username : admin</li>
+    <li>Password : admin</li>
+  </ul>
+</div>
 <div class="container">
   <div class="login">
     <h1>Connection Marathon</h1>
