@@ -9,11 +9,14 @@
    - le parent de body également en "height: 100%". */
 html,
 body {
-  height: 100%;
+  height: 34px;
 }
 
 body {
-  font-family: "Futura-Medium", "Futura", "Trebuchet MS", sans-serif;
+  font-family: "Lucida Grande", Tahoma, Verdana, sans-serif;
+}
+label {
+  margin-right: 30px;
 }
 
 .postTitle {
@@ -22,7 +25,6 @@ body {
 
 #global {
   min-height: 100%; /* Voir commentaire sur html et body plus haut */
-  width: 70%;
   margin: auto; /* Permet de centrer la div */
   text-align: justify;
   padding: 5px 20px;
