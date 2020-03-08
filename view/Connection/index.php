@@ -10,7 +10,7 @@
         <li>Password : admin</li>
     </ul>
 </div>
-<div class="container">
+<div class="login">
     <div class="box">
         <h1>Connection Marathon</h1>
         <form method="post" action="connection/connect">

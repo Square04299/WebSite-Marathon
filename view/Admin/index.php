@@ -24,9 +24,9 @@ Ce blog comporte <?= $this->clean($nbPosts) ?> billet(s) et <?= $this->clean($nb
             <label>Lieux d'arriver </label>
                 <input type="text" name="lieuxA" value="" placeholder=""><!-- change dropdown -->
             <label>Temps</label>
-                <input type="text" name="temps" value="" placeholder=""> <!-- -->
+                <input type="text" name="temps" value="" placeholder="HH:MM:SS" READONLY> <!-- -->
             <label>Distance</label>
-                <input type="text" name="distance" value="" placeholder=""> <!-- -->
+                <input type="text" name="distance" value="" placeholder="KM" READONLY> <!-- -->
             <div>
                 <input class="reset" type="reset" name="reset" value="Reset">
                 <input class="submit" type="submit" name="commit" value="Create">

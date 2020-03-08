@@ -32,8 +32,11 @@ class ControllerConnection extends Controller
                         $user['idUser']);
                 $this->request->getSession()->setAttribute("login",
                         $user['login']);
-            //Check if the account has admin privillages
-                $this->redirect("admin");
+                if ($this->user->getAdmin($login,$pwd)) {
+                    $this->redirect("admin");
+                } else {
+                    $this->redirect("home");
+                }
             }
             else
                 $this->generateView(array('msgError' => 'Login ou mot de passe incorrects'),
