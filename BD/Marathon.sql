@@ -24,6 +24,7 @@ create table T_USER (
 );
 
 create table T_REGION (
+  R_ID integer not null,
   R_LIEUX varchar(100) primary key not null
 );
 
@@ -54,11 +55,10 @@ VALUES ('user','user','BEL','0');
 INSERT INTO T_USER (U_NOM,U_PASSWORD,U_NATIONALITE,U_ADMIN)
 VALUES ('admin','admin','BEL','1');
 
-INSERT INTO T_REGION
-VALUES ('Bruxelle'),
-        ('Mons'),
-        ('Londre'),
-        ('Liverpool'),
-        ('Paris'),
-        ('Lyon');
-
+INSERT INTO T_REGION(R_ID,R_LIEUX)
+VALUES ('01','Bruxelle'),
+        ('02','Mons'),
+        ('03','Londre'),
+        ('04','Liverpool'),
+        ('05','Paris'),
+        ('06','Lyon');
