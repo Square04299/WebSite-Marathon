@@ -3,6 +3,7 @@
 require_once 'ControllerSecured.php';
 require_once 'model/Post.php';
 require_once 'model/Comment.php';
+require_once 'model/Admin.php';
 
 /**
  * Contrôleur des actions d'administration
@@ -12,6 +13,7 @@ class ControllerAdmin extends ControllerSecured
 {
     private $post;
     private $comment;
+    private $lieux;
 
     /**
      * Constructeur 
@@ -20,6 +22,7 @@ class ControllerAdmin extends ControllerSecured
     {
         //$this->post = new Post();
         //$this->comment = new Comment();
+        $this->r_lieux = new Admin();
     }
 
     public function index()
@@ -28,7 +31,8 @@ class ControllerAdmin extends ControllerSecured
         $nbComments = $this->comment->getNumberComments();
         $login = $this->request->getSession()->getAttribute("login");
         parent::generateView(array('nbPosts' => $nbPosts, 'nbComments' => $nbComments, 'login' => $login));*/
-        parent::generateView(array());
+        $lieux = $this->r_lieux->getLieux();
+        parent::generateView(array('lieux' => $lieux));
     }
 
 }

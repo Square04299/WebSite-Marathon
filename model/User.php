@@ -42,6 +42,12 @@ class User extends Model {
             throw new Exception("Aucun utilisateur ne correspond aux identifiants fournis");
     }
 
+    /**
+     * Verfiie qu'un utilisateur est admin
+     * @param string $login Le login
+     * @param string $pwd Le mot de passe
+     * @return boolean Vrai si l'utilisateur est admin
+     */
     public function getAdmin($login,$pwd){
         $sql = "select U_ADMIN from T_USER where U_NOM='$login' and U_PASSWORD ='$pwd' and U_ADMIN ='1'";
         $admin = $this->executeRequest($sql, array($login, $pwd));

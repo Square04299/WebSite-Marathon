@@ -20,9 +20,40 @@ Ce blog comporte <?= $this->clean($nbPosts) ?> billet(s) et <?= $this->clean($nb
                 <input type="date" name="date" value="" placeholder="Date">
 
             <label>Lieux de départ </label>
-                <input type="text" name="lieuxD" value="" placeholder=""> <!-- change dropdown -->
+
+
+    <!---->
+                <select>
+                    <option value="" selected disabled>Choix du Lieux</option>
+                <?php
+                    while ($row = $lieux->fetch()) {
+                        $lieuxAr = $row['R_LIEUX'];
+                        echo '<option value="' . $lieuxAr . '">' . $lieuxAr . '</option>';
+                    }
+                    $lieux->closeCursor();
+                ?>
+                </select>
+
+
+    <!---->
             <label>Lieux d'arriver </label>
-                <input type="text" name="lieuxA" value="" placeholder=""><!-- change dropdown -->
+    <!---->
+
+                <select>
+                    <option value="" selected disabled>Choix du Lieux</option>
+                <?php
+                    while ($row = $lieux->fetch()) {
+                        $lieuxAr = $row['R_LIEUX'];
+                        echo '<option value="' . $lieuxAr . '">' . $lieuxAr . '</option>';
+                    }
+                    $lieux->closeCursor();
+                ?>
+                </select>
+                
+    <!---->
+
+
+
             <label>Temps</label>
                 <input type="text" name="temps" value="" placeholder="HH:MM:SS" READONLY> <!-- -->
             <label>Distance</label>
