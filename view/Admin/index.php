@@ -1,4 +1,5 @@
-<?php $this->title = "Marathon - Administration" ?>
+<?php $this->title = "Marathon - Administration"?>
+
 <!--
 <h2>Administration</h2>
 
@@ -21,37 +22,15 @@ Ce blog comporte <?= $this->clean($nbPosts) ?> billet(s) et <?= $this->clean($nb
 
             <label>Lieux de départ </label>
 
-
-    <!---->
-                <select>
-                    <option value="" selected disabled>Choix du Lieux</option>
-                <?php
-                    while ($row = $lieux->fetch()) {
-                        $lieuxAr = $row['R_LIEUX'];
-                        echo '<option value="' . $lieuxAr . '">' . $lieuxAr . '</option>';
-                    }
-                    $lieux->closeCursor();
-                ?>
+                <select class="lieux">
+                    <option selected disabled>Choix du Lieux</option>
                 </select>
 
-
-    <!---->
             <label>Lieux d'arriver </label>
-    <!---->
 
                 <select>
-                    <option value="" selected disabled>Choix du Lieux</option>
-                <?php
-                    while ($row = $lieux->fetch()) {
-                        $lieuxAr = $row['R_LIEUX'];
-                        echo '<option value="' . $lieuxAr . '">' . $lieuxAr . '</option>';
-                    }
-                    $lieux->closeCursor();
-                ?>
+                    <option value selected disabled>Choix du Lieux</option>
                 </select>
-                
-    <!---->
-
 
 
             <label>Temps</label>
