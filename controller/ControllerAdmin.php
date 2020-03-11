@@ -11,18 +11,13 @@ require_once 'model/Admin.php';
  */
 class ControllerAdmin extends ControllerSecured
 {
-    private $post;
-    private $comment;
-    private $lieux;
 
     /**
      * Constructeur 
      */
     public function __construct()
     {
-        //$this->post = new Post();
-        //$this->comment = new Comment();
-        $this->r_lieux = new Admin();
+        $this->data = new Admin();
     }
 
     public function index()
@@ -31,8 +26,8 @@ class ControllerAdmin extends ControllerSecured
         $nbComments = $this->comment->getNumberComments();
         $login = $this->request->getSession()->getAttribute("login");
         parent::generateView(array('nbPosts' => $nbPosts, 'nbComments' => $nbComments, 'login' => $login));*/
-        $lieux = $this->r_lieux->getLieux();
-        parent::generateView(array('lieux' => $lieux));
+        $this->data->lieuxToJSON();
+        parent::generateView();
     }
 
 }

@@ -8,11 +8,18 @@ require_once 'framework/Model.php';
  */
 class Admin extends Model {
 
+    public function lieuxToJSON(){
+        $sql ='select R_ID, R_LIEUX from T_REGION';
+        $result = $this->executeRequest($sql);
+        $json_array;
 
-    public function getLieux(){
-        $sql = 'select R_LIEUX from T_REGION';
-        $lieux = $this->executeRequest($sql);
-        return $lieux;
+        while ($row = $result->fetchObject()) {
+            $json_array[] = $row;
+        }
+        
+        $fp = fopen('ressources/lieux.json', "w");
+        fwrite($fp, json_encode($json_array));
+        fclose($fp);
     }
 
 }
