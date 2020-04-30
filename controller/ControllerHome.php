@@ -13,8 +13,9 @@ class ControllerHome extends Controller {
 
     // Affiche la liste de tous les billets du blog
     public function index() {
-        $posts = $this->post->getPosts();
-        $this->generateView(array('posts' => $posts));
+        $login = $this->request->getSession()->getAttribute("idUser");
+        $posts = $this->post->getUserRace($login);
+        $this->generateView(array('login'=> $login,'post'=> $posts));
     }
 
 }

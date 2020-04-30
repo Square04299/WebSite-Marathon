@@ -29,7 +29,8 @@ create table T_REGION (
 );
 
 create table T_COURSE (
-  C_ID_COURSE integer primary key not null,
+  C_ID_COURSE integer primary key auto_increment not null,
+  C_NAME varchar(100) not null,
   C_LIEUX_DEPART varchar(100) not null,
   C_LIEUX_ARRIVER varchar(100) not null,
   C_DATE_DEBUT datetime,
@@ -62,3 +63,10 @@ VALUES ('01','Bruxelle'),
         ('04','Liverpool'),
         ('05','Paris'),
         ('06','Lyon');
+
+INSERT INTO T_COURSE (C_NAME,C_LIEUX_DEPART,C_LIEUX_ARRIVER,C_DATE_DEBUT)
+VALUES ('SUNLIGHT','Bruxelle','Mons','2020-4-17'),
+        ('ECO RUN','Paris','Lyon','2020-5-17');
+
+INSERT INTO T_PATICIPANT (P_ID_COURSE,P_PARTICIPANT,P_CLASSEMENT,P_DATE)
+VALUES ('1','1','3','2020-4-5');

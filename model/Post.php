@@ -8,6 +8,17 @@ require_once 'framework/Model.php';
  */
 class Post extends Model {
 
+    public function getUserRace($idUser){
+        $sql = "select * from T_COURSE join T_PATICIPANT on C_ID_COURSE=P_ID_COURSE"
+        ." where P_PARTICIPANT = '$idUser'";
+
+        $race = $this->executeRequest($sql, array($idUser));
+        if ($race->rowCount() > 0)
+            return $race->fetch();  // Accès à la première ligne de résultat
+        else
+            throw new Exception("Aucune course a été trouver pour le User");
+    }
+
     /** Renvoie la liste des billets du blog
      * 
      * @return PDOStatement La liste des billets
@@ -19,6 +30,7 @@ class Post extends Model {
         $posts = $this->executeRequest($sql);
         return $posts;
     }
+
 
     /** Renvoie les informations sur un billet
      * 
@@ -50,3 +62,14 @@ class Post extends Model {
         return $line['nbPosts'];
     }
 }
+/*  Va chercher toute les courses existante
+select C_NAME,C_LIEUX_DEPART,C_LIEUX_ARRIVER,C_DATE_DEBUT,P_PARTICIPANT,P_CLASSEMENT
+from T_COURSE
+join T_PATICIPANT on C_ID_COURSE=P_ID_COURSE
+
+    Toute les courses du participant X
+select *
+from T_COURSE
+join T_PATICIPANT on C_ID_COURSE=P_ID_COURSE
+where P_PARTICIPANT = 1;
+*/

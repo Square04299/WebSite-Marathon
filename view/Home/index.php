@@ -1,5 +1,26 @@
-<?php $this->title = "Mon Blog"; ?>
+<?php $this->title = "Home Page"; ?>
 
+
+<div class="container">
+    <div class="box">
+        <h1>My Marathon</h1>
+            <div class="box">
+                <h1>TEST</h1>
+            </div>
+            <div class="box">
+                <h1>TEST1</h1>
+            </div>
+            <div class="box">
+                <h1>TEST2</h1>
+            </div>
+            <div class="box">
+                <h1>TEST3</h1>
+            </div>
+            <?= $this->clean($login)?>
+    </div>
+</div>
+
+<!--
 <?php foreach ($posts as $post):
     ?>
     <article>
@@ -13,3 +34,4 @@
     </article>
     <hr />
 <?php endforeach; ?>
+-->
