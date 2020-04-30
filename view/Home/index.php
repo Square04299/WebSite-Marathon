@@ -4,19 +4,38 @@
 <div class="container">
     <div class="box">
         <h1>My Marathon</h1>
-            <div class="box">
-                <h1>TEST</h1>
-            </div>
-            <div class="box">
-                <h1>TEST1</h1>
-            </div>
-            <div class="box">
-                <h1>TEST2</h1>
-            </div>
-            <div class="box">
-                <h1>TEST3</h1>
-            </div>
-            <?= $this->clean($login)?>
+            <?php foreach ($races as $race):?>
+                <article>
+                <div class="box">
+                    <h1><?= $this->clean($race['Cname'])?> </h1>
+                    <div class="grid-container">
+                        <div class="grid">
+                            <div>Lieux de Départ</div>
+                            <hr/>
+                            <?= $this->clean($race['lieuxDepart'])?> 
+                        </div>
+                        <div  class="grid">
+                            <div>Lieux d'Arriver</div>
+                            <hr/>
+                            <?= $this->clean($race['lieuxArriver'])?>  
+                        </div>
+                        <div class="grid">
+                            <div>Départ de la course</div>
+                            <hr/>
+                            <?= $this->clean($race['dateDebut'])?>
+                        </div>
+                        <div class="grid">
+                            <div>Nombres de participant</div>
+                            <hr/>
+                            <!--
+                            //TODO
+                                <p><?= $this->clean($race['total']) ?> </p>
+                            -->
+                        </div>
+                    </div>
+                </div>
+                </article>
+            <?php endforeach; ?>
     </div>
 </div>
 

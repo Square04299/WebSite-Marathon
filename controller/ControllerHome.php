@@ -5,17 +5,21 @@ require_once 'model/Post.php';
 
 class ControllerHome extends Controller {
 
-    private $post;
+    private $race;
 
     public function __construct() {
-        $this->post = new Post();
+        $this->race = new Post();
     }
 
     // Affiche la liste de tous les billets du blog
     public function index() {
         $login = $this->request->getSession()->getAttribute("idUser");
-        $posts = $this->post->getUserRace($login);
-        $this->generateView(array('login'=> $login,'post'=> $posts));
+        $races = $this->race->getUserRaceNotEnd($login);
+        //FIXME $racescount = $this->race->getTotalParticipant();
+        print_r($login);
+        print_r($races);
+        //FIXME print_r($racescount);
+        $this->generateView(array('login'=> $login,'races'=> $races));
     }
 
 }

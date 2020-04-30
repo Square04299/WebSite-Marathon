@@ -8,15 +8,27 @@ require_once 'framework/Model.php';
  */
 class Post extends Model {
 
-    public function getUserRace($idUser){
-        $sql = "select * from T_COURSE join T_PATICIPANT on C_ID_COURSE=P_ID_COURSE"
-        ." where P_PARTICIPANT = '$idUser'";
+    public function getUserRaceNotEnd($idUser){
+        $sql = "select C_NAME as Cname, C_LIEUX_DEPART as lieuxDepart, C_LIEUX_ARRIVER as lieuxArriver, C_DATE_DEBUT as dateDebut"
+        ." from T_COURSE join T_PATICIPANT on C_ID_COURSE=P_ID_COURSE"
+        ." where P_PARTICIPANT = '$idUser' and C_END = 0";
 
         $race = $this->executeRequest($sql, array($idUser));
         if ($race->rowCount() > 0)
-            return $race->fetch();  // Accès à la première ligne de résultat
+            return $race->fetchAll();
         else
             throw new Exception("Aucune course a été trouver pour le User");
+    }
+
+    public function getTotalParticipant(){
+        $sql = "select P_ID_COURSE, count(p_participant) as total from T_PATICIPANT"
+        ." group by p_id_course";
+
+        $total = $this->executeRequest($sql, array($idUser));
+        if ($total->rowCount() > 0)
+            return $total->fetchAll();
+        else
+            throw new Exception("Ce user n'a pas cette course dans ses favories");
     }
 
     /** Renvoie la liste des billets du blog

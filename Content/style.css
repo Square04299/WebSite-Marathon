@@ -17,7 +17,8 @@ body {
 }
 
 div {
-  margin: 1%;
+  margin: 0 0 3% 0;
+  text-align: center;
 }
 
 .postTitle {
@@ -72,8 +73,23 @@ div {
   width: 93%;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  padding: 10px;
+  border: #404040;
+}
+
+.grid {
+  /*border: 1px solid rgba(0, 0, 0, 0.8);*/
+  padding: 2%;
+  text-align: center;
+}
+
 .submit {
   margin-left: 21%;
+  margin: 1%;
 }
 .reset {
   margin-right: 21%;
@@ -104,11 +120,6 @@ div {
   border-bottom: 1px solid #cfcfcf;
   border-radius: 3px 3px 0 0;
   box-shadow: 0 1px whitesmoke;
-}
-
-.box div {
-  margin: 3% 0 0;
-  text-align: center;
 }
 
 .box div:first-child {
