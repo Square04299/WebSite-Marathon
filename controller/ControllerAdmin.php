@@ -1,8 +1,6 @@
 <?php
 
 require_once 'ControllerSecured.php';
-require_once 'model/Post.php';
-require_once 'model/Comment.php';
 require_once 'model/Admin.php';
 
 /**

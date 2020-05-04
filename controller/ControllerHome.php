@@ -1,25 +1,25 @@
 <?php
 
 require_once 'framework/Controller.php';
-require_once 'model/Post.php';
+require_once 'model/Race.php';
 
 class ControllerHome extends Controller {
 
     private $race;
 
     public function __construct() {
-        $this->race = new Post();
+        $this->race = new Race();
     }
 
     // Affiche la liste de tous les billets du blog
     public function index() {
         $login = $this->request->getSession()->getAttribute("idUser");
-        $races = $this->race->getUserRaceNotEnd($login);
-        //FIXME $racescount = $this->race->getTotalParticipant();
-        print_r($login);
-        print_r($races);
-        //FIXME print_r($racescount);
-        $this->generateView(array('login'=> $login,'races'=> $races));
+        $userRaces = $this->race->getUserRace($login,0);
+        $racesEndeds = $this->race->getUserRace($login,1);
+        $racesCount = $this->race->getTotalParticipant();
+        $races = $this->race->mergeAfter($userRaces,$racesCount);
+
+        $this->generateView(array('login'=> $login,'races'=> $races,'racesEndeds'=> $racesEndeds));
     }
 
 }

@@ -1,7 +1,7 @@
 <?php
 
 require_once 'framework/Controller.php';
-require_once 'model/Post.php';
+require_once 'model/Race.php';
 require_once 'model/Comment.php';
 /**
  * Contrôleur des actions liées aux billets
@@ -16,7 +16,7 @@ class ControllerPost extends Controller {
      * Constructeur 
      */
     public function __construct() {
-        $this->post = new Post();
+        $this->post = new Race();
         $this->comment = new Comment();
     }
 
