@@ -1,16 +1,6 @@
 <?php $this->title = "Marathon - Administration"?>
 
-<!--
-<h2>Administration</h2>
 
-Bienvenue, <?= $this->clean($login) ?> !
-Ce blog comporte <?= $this->clean($nbPosts) ?> billet(s) et <?= $this->clean($nbComments) ?> commentaire(s).
-<br>
-<a id="decoLink" href="connection/disconnect">Se déconnecter</a>
--->
-
-
-<!-- Need to create form for course -->
 <div class="container">
     <div class="box">
         <h1>Create new Marathon</h1>
@@ -32,11 +22,6 @@ Ce blog comporte <?= $this->clean($nbPosts) ?> billet(s) et <?= $this->clean($nb
                     <option value selected disabled>Choix du Lieux</option>
                 </select>
 
-
-            <label>Temps</label>
-                <input type="text" name="temps" value="" placeholder="HH:MM:SS" READONLY> <!-- -->
-            <label>Distance</label>
-                <input type="text" name="distance" value="" placeholder="KM" READONLY> <!-- -->
             <div>
                 <input class="reset" type="reset" name="reset" value="Reset">
                 <input class="submit" type="submit" name="commit" value="Create">
@@ -47,5 +32,34 @@ Ce blog comporte <?= $this->clean($nbPosts) ?> billet(s) et <?= $this->clean($nb
 <div class="container">
     <div class="box">
         <h1>Marathon Précédent</h1>
+            <?php foreach ($races as $race):?>
+                    <article>
+                    <div class="box">
+                        <h1><?= $this->clean($race['Cname'])?> </h1>
+                        <div class="grid-container">
+                            <div class="grid">
+                                <div>Lieux de Départ</div>
+                                <hr/>
+                                <?= $this->clean($race['lieuxDepart'])?> 
+                            </div>
+                            <div  class="grid">
+                                <div>Lieux d'Arriver</div>
+                                <hr/>
+                                <?= $this->clean($race['lieuxArriver'])?>  
+                            </div>
+                            <div class="grid">
+                                <div>Départ de la course</div>
+                                <hr/>
+                                <?= $this->clean($race['dateDebut'])?>
+                            </div>
+                            <div class="grid">
+                                <div>Nombres de participant</div>
+                                <hr/>
+                                <?= $this->clean($race['total']) ?>
+                            </div>
+                        </div>
+                    </div>
+                    </article>
+                <?php endforeach; ?>
     </div>
 </div>
