@@ -19,7 +19,7 @@ class ControllerHome extends Controller {
         $racesCount = $this->race->getTotalParticipant();
         $races = $this->race->mergeAfter($userRaces,$racesCount);
 
-        $this->generateView(array('login'=> $login,'races'=> $races,'racesEndeds'=> $racesEndeds));
+        $this->generateView(array('races'=> $races,'racesEndeds'=> $racesEndeds));
     }
 
 }

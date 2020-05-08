@@ -10,7 +10,7 @@ class Race extends Model {
 
     public function getUserRace($idUser,$end){
         $sql = "select C_NAME as Cname, C_LIEUX_DEPART as lieuxDepart, C_LIEUX_ARRIVER as lieuxArriver, C_DATE_DEBUT as dateDebut, P_CLASSEMENT as Pclassement"
-        ." from T_COURSE join T_PATICIPANT on C_ID_COURSE=P_ID_COURSE"
+        ." from T_COURSE join T_PARTICIPANT on C_ID_COURSE=P_ID_COURSE"
         ." where P_PARTICIPANT = '$idUser' and C_END = '$end'";
 
         $race = $this->executeRequest($sql, array($idUser));
@@ -19,7 +19,7 @@ class Race extends Model {
 
     public function getTotalParticipant(){
         $sql = "select P_ID_COURSE, count(p_participant) as total"
-        ." from T_PATICIPANT join T_COURSE  on C_ID_COURSE=P_ID_COURSE"
+        ." from T_PARTICIPANT join T_COURSE  on C_ID_COURSE=P_ID_COURSE"
         ." where C_END = 0"
         ." group by p_id_course";
 
@@ -48,4 +48,8 @@ select *
 from T_COURSE
 join T_PATICIPANT on C_ID_COURSE=P_ID_COURSE
 where P_PARTICIPANT = 1;
+
+select C_NAME as Cname, C_LIEUX_DEPART as lieuxDepart, C_LIEUX_ARRIVER as lieuxArriver, C_DATE_DEBUT as dateDebut
+from T_COURSE join T_PATICIPANT on C_ID_COURSE=P_ID_COURSE
+where P_PARTICIPANT !='1' and C_END = '0';
 */

@@ -16,6 +16,7 @@ body {
 body {
   font-family: "Lucida Grande", Tahoma, Verdana, sans-serif;
   background-color: rgb(151, 151, 151);
+  /*background-color: rgb(165, 214, 230);*/
   color: white;
 }
 
@@ -82,10 +83,11 @@ hr {
 .container {
   margin: 50px 1.2% 50px 1.2%;
   width: 640px;
-  float: left;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-evenly;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .login {

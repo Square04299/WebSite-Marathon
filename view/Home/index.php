@@ -3,7 +3,7 @@
 <div class="topnav">
     <a class="active" href="<?= "home/"?>">Home</a>
     <a href="<?= "join/"?>">Join</a>
-    <a href=""></a>
+    <a href="connection/disconnect">Disconnect</a>
 </div>
 
 <div class="container">
