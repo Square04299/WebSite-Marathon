@@ -1,3 +1,6 @@
+/**
+ * Fonction qui va ajouter les lieu de départ via une liste .json
+ */
 $(function() {
   $(".lieuxDepart").ready(function() {
     var combobox;
@@ -17,8 +20,15 @@ $(function() {
     });
   });
 
+  /**
+   * Après avoir modifier la liste va retire cette element pour ne pas avoir le même
+   * départ et arrivée
+   */
   $(".lieuxDepart").change(function(e) {
     var index = $(".lieuxDepart option:selected").val();
+    $(".lieuxArriver option").each(function() {
+      $(this).remove();
+    });
     var combobox;
     $.ajax({
       url: "ressources/lieux.json",
