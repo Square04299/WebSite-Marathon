@@ -25,6 +25,9 @@ class ControllerJoin extends Controller {
         $this->generateView(array('races'=> $races));
     }
 
+    /**
+     * Fonction pour ajouter l'utilisateur à une course
+     */
     public function joining(){
         $login = $this->request->getSession()->getAttribute("idUser");
         $idCourse = $this->request->getParameter("idCourse");

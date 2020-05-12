@@ -19,6 +19,9 @@ class ControllerAdmin extends ControllerSecured
         $this->race = new Race();
     }
 
+    /**
+     * Creation de la page admin
+     */
     public function index(){
         $this->data->lieuxToJSON();
         $userRaces = $this->race->getRace();
@@ -28,6 +31,9 @@ class ControllerAdmin extends ControllerSecured
         parent::generateView(array('races'=> $races));
     }
 
+    /**
+     * Ajoute une nouvelle course dans la base de donnée
+     */
     public function newRace(){
 
         $nameRace = $this->request->getParameter("race");

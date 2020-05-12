@@ -11,7 +11,9 @@ class ControllerHome extends Controller {
         $this->race = new Race();
     }
 
-    // Affiche la liste de tous les billets du blog
+    /**
+     * Afficher toutes les courses donc l'Utilisateur fais partie
+    */
     public function index() {
         $login = $this->request->getSession()->getAttribute("idUser");
         $userRaces = $this->race->getUserRace($login,0);

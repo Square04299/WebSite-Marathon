@@ -1,13 +1,6 @@
 
-DROP DATABASE marathon;
 CREATE DATABASE IF NOT EXISTS marathon DEFAULT CHARACTER SET utf8;
 USE marathon;
-
-drop table if exists T_NATIONALITE;
-drop table if exists T_USER;
-drop table if exists T_REGION;
-drop table if exists T_COURSE;
-drop table if exists T_PARTICIPANT;
 
 
 create table T_NATIONALITE (

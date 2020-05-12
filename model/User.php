@@ -43,7 +43,7 @@ class User extends Model {
     }
 
     /**
-     * Verfiie qu'un utilisateur est admin
+     * Vérifie qu'un utilisateur est admin
      * @param string $login Le login
      * @param string $pwd Le mot de passe
      * @return boolean Vrai si l'utilisateur est admin
