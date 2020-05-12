@@ -1,14 +1,14 @@
 <?php $this->title = "Join" ?>
 
 <div class="topnav">
-    <a href="<?= "home/"?>">Home</a>
-    <a class="active" href="<?= "join/"?>">Join</a>
-    <a href="connection/disconnect">Disconnect</a>
+    <a href="<?= "home/"?>">Accueil</a>
+    <a class="active" href="<?= "join/"?>">Rejoindre</a>
+    <a href="connection/disconnect">Déconnexion</a>
 </div>
 
 <div class="container">
     <div class="box">
-        <h1>My Marathon</h1>
+        <h1>Mes marathons</h1>
             <?php foreach ($races as $race):?>
                 <form method="post" action="join/joining">
                     <article>
@@ -16,14 +16,14 @@
                         <h1><?= $this->clean($race['Cname'])?> </h1>
                         <div class="grid-container">
                             <div class="grid">
-                                <div>Lieux de Départ</div>
+                                <div>Lieu de départ</div>
                                 <hr/>
                                 <label name="lieuxDepart">
                                     <?= $this->clean($race['lieuxDepart'])?>
                                 </label>
                             </div>
                             <div  class="grid">
-                                <div>Lieux d'Arriver</div>
+                                <div>Lieu d'arrivée</div>
                                 <hr/>
                                 <label name="lieuxArriver">
                                     <?= $this->clean($race['lieuxArriver'])?>
@@ -35,7 +35,7 @@
                                 <?= $this->clean($race['dateDebut'])?>
                             </div>
                             <div class="grid">
-                                <div>Nombres de participant</div>
+                                <div>Nombre de participants</div>
                                 <hr/>
                                 <?= $this->clean($race['total']) ?>
                             </div>

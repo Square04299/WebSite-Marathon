@@ -1,26 +1,26 @@
 <?php $this->title = "Home Page"; ?>
 
 <div class="topnav">
-    <a class="active" href="<?= "home/"?>">Home</a>
-    <a href="<?= "join/"?>">Join</a>
-    <a href="connection/disconnect">Disconnect</a>
+    <a class="active" href="<?= "home/"?>">Accueil</a>
+    <a href="<?= "join/"?>">Rejoindre</a>
+    <a href="connection/disconnect">Déconnexion</a>
 </div>
 
 <div class="container">
     <div class="box">
-        <h1>My Marathon</h1>
+        <h1>Mes marathons</h1>
             <?php foreach ($races as $race):?>
                 <article>
                 <div class="box">
                     <h1><?= $this->clean($race['Cname'])?> </h1>
                     <div class="grid-container">
                         <div class="grid">
-                            <div>Lieux de Départ</div>
+                            <div>Lieu de départ</div>
                             <hr/>
                             <?= $this->clean($race['lieuxDepart'])?> 
                         </div>
                         <div  class="grid">
-                            <div>Lieux d'Arriver</div>
+                            <div>Lieu d'arrivée</div>
                             <hr/>
                             <?= $this->clean($race['lieuxArriver'])?>  
                         </div>
@@ -30,7 +30,7 @@
                             <?= $this->clean($race['dateDebut'])?>
                         </div>
                         <div class="grid">
-                            <div>Nombres de participant</div>
+                            <div>Nombre de participants</div>
                             <hr/>
                             <?= $this->clean($race['total']) ?>
                         </div>
@@ -42,19 +42,19 @@
 </div>
 <div class="container">
     <div class="box">
-        <h1>Finished Marathon</h1>
+        <h1>Marathons terminés</h1>
             <?php foreach ($racesEndeds as $racesended):?>
                 <article>
                 <div class="box">
                     <h1><?= $this->clean($racesended['Cname'])?> </h1>
                     <div class="grid-container">
                         <div class="grid">
-                            <div>Lieux de Départ</div>
+                            <div>Lieu de départ</div>
                             <hr/>
                             <?= $this->clean($racesended['lieuxDepart'])?> 
                         </div>
                         <div  class="grid">
-                            <div>Lieux d'Arriver</div>
+                            <div>Lieu d'arrivée</div>
                             <hr/>
                             <?= $this->clean($racesended['lieuxArriver'])?>  
                         </div>

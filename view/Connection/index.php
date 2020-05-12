@@ -2,13 +2,18 @@
 
 <div class="login">
     <div class="box">
-        <h1>Connection Marathon</h1>
+        <h1>Connexion</h1>
         <form method="post" action="connection/connect">
             <div>
-                <input type="text" name="login" value="" placeholder="Username">
+                <input type="text" name="login" value="" placeholder="Username" required>
             </div>
             <div>
-                <input type="password" name="password" value="" placeholder="Password">
+                <input type="password" name="password" value="" placeholder="Password" required>
+            </div>
+            <div>
+            <?php if (isset($msgError)): ?>
+                <p style="color:black;"><?= $msgError ?></p>
+            <?php endif; ?>
             </div>
             <div class="submit">
                 <input type="submit" name="commit" value="Login">
@@ -16,18 +21,3 @@
         </form>
     </div>
 </div>
-
-<div class="info">
-    <ul>
-        <li>Username : user</li>
-        <li>Password : user</li>
-    </ul>
-    <ul>
-        <li>Username : admin</li>
-        <li>Password : admin</li>
-    </ul>
-</div>
-
-<?php if (isset($msgError)): ?>
-    <p><?= $msgError ?></p>
-<?php endif; ?>

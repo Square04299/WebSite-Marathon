@@ -65,17 +65,17 @@ VALUES ('admin','admin','BEL','1');
 
 
 INSERT INTO T_REGION(R_ID,R_LIEUX)
-VALUES ('01','Bruxelle'),
+VALUES ('01','Bruxelles'),
         ('02','Mons'),
-        ('03','Londre'),
+        ('03','Londres'),
         ('04','Liverpool'),
         ('05','Paris'),
         ('06','Lyon');
 
 INSERT INTO T_COURSE (C_NAME,C_LIEUX_DEPART,C_LIEUX_ARRIVER,C_DATE_DEBUT,C_END)
-VALUES ('SUNLIGHT','Bruxelle','Mons','2020-4-17','0'),
+VALUES ('SUNLIGHT','Bruxelles','Mons','2020-4-17','0'),
         ('ECO RUN','Paris','Lyon','2020-5-17','1'),
-        ('TEA','Liverpool','Londre','2020-4-17','0');
+        ('TEA','Liverpool','Londres','2020-4-17','0');
 
 INSERT INTO T_PARTICIPANT (P_ID_COURSE,P_PARTICIPANT,P_CLASSEMENT,P_DATE)
 VALUES ('1','1','3','2020-4-5');
