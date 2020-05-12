@@ -43,7 +43,7 @@ class ControllerConnection extends Controller
                         "index");
         }
         else
-            throw new Exception("Action impossible : login ou mot de passe non défini");
+            $this->generateView(array('msgError' => 'Action impossible : login ou mot de passe non défini'),"index");
     }
 
     public function disconnect()

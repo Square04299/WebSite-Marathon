@@ -7,7 +7,6 @@
    Pour pouvoir utiliser un "min-height: 100%" sur div#global, il nous faut:
    - un parent (body) en "height: 100%";
    - le parent de body également en "height: 100%". */
-/*TODO Change the color theme to black and green */
 html,
 body {
   height: 34px;
@@ -164,7 +163,8 @@ hr {
 
 .box input[type="text"],
 .box input[type="password"],
-.box input[type="date"] {
+.box input[type="date"],
+.box input[type="time"] {
   width: 470px;
 }
 
@@ -181,6 +181,7 @@ select {
 input[type="text"],
 input[type="password"],
 input[type="date"],
+input[type="time"],
 select {
   margin: 5px;
   margin-right: 15px;

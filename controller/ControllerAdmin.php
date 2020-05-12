@@ -20,11 +20,28 @@ class ControllerAdmin extends ControllerSecured
     }
 
     public function index(){
+        $this->data->lieuxToJSON();
         $userRaces = $this->race->getRace();
         $racesCount = $this->race->getParticipant();
         $races = $this->race->mergeAfter($userRaces,$racesCount);
         $this->data->lieuxToJSON();
         parent::generateView(array('races'=> $races));
+    }
+
+    public function newRace(){
+
+        $nameRace = $this->request->getParameter("race");
+        $date = $this->request->getParameter("dateRace");
+        $time = $this->request->getParameter("timeRace");
+        $depart = $this->request->getParameter("depart");
+        $arriver = $this->request->getParameter("arriver");
+
+        $datetime = $date .' '. $time;
+
+
+        $this->data->newRace($nameRace,$depart,$arriver,$datetime);
+        $this->executeAction("index");
+        $this->redirect("admin");
     }
 
 }

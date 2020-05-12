@@ -15,10 +15,12 @@ class Join extends Model {
         ." group by p_id_course";
 
         $total = $this->executeRequest($sql, array($idUser));
-        if ($total->rowCount() > 0)
+        if ($total->rowCount() > 0) {
             return $total->fetch();
-        else
-            throw new Exception("Ce user n'a pas cette course dans ses favories");
+        } else {
+            return  $array = Array ( "P_ID_COURSE" => $idCOURSE,"total" => "0");
+        }
+        
     }
 
     public function mergeAfter($userRaces,$racesCount){

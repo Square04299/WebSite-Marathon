@@ -22,4 +22,10 @@ class Admin extends Model {
         fclose($fp);
     }
 
+    public function newRace($name,$depart,$arriver,$date){
+        $sql = "insert into T_COURSE (C_NAME,C_LIEUX_DEPART,C_LIEUX_ARRIVER,C_DATE_DEBUT,C_END)"
+        ." values(?, ?, ?, ?, ?)";
+        $this->executeRequest($sql, array($name, $depart, $arriver, $date,"0"));
+    }
+
 }

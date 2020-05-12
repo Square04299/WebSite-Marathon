@@ -1,43 +1,47 @@
 $(function() {
-  $(".lieux").ready(function() {
+  $(".lieuxDepart").ready(function() {
     var combobox;
     $.ajax({
-      url: "./ressources/script.json",
+      url: "ressources/lieux.json",
       success: function(lieux) {
-        console.log("I'm here");
         $.each(lieux, function(key, lieux) {
           combobox +=
-            "<option value =" + lieux.R_ID + ">" + lieux.R_LIEUX + "</option>";
+            "<option name =" +
+            lieux.R_LIEUX +
+            ">" +
+            lieux.R_LIEUX +
+            "</option>";
         });
-        $(".lieux").append(combobox);
+        $(".lieuxDepart").append(combobox);
       }
     });
   });
-  /*
-  $(".departement").change(function(e) {
-    var selectedDpt = $(this).val();
-    var confirmeddpt;
-    var comboboxWorker =
-      "Employer <select><option hidden selected value>Select Employer</option>";
-    selectedDpt += ".json";
-    $.getJSON("./ressources/", function(files) {
-      $.each(files, function(key, file) {
-        if (file === selectedDpt) {
-          confirmeddpt = selectedDpt;
-        }
-      });
-      $.getJSON("./ressources/" + confirmeddpt, function(workers) {
-        $.each(workers, function(key, worker) {
-          comboboxWorker +=
-            "<option value =" +
-            worker.empno +
-            ">" +
-            worker.empnom +
-            "</option>";
+
+  $(".lieuxDepart").change(function(e) {
+    var index = $(".lieuxDepart option:selected").val();
+    var combobox;
+    $.ajax({
+      url: "ressources/lieux.json",
+      success: function(lieux) {
+        $.each(lieux, function(key, lieux) {
+          if (lieux.R_LIEUX == index) {
+            combobox +=
+              "<option name =" +
+              lieux.R_LIEUX +
+              " hidden >" +
+              lieux.R_LIEUX +
+              "</option>";
+          } else {
+            combobox +=
+              "<option name =" +
+              lieux.R_LIEUX +
+              ">" +
+              lieux.R_LIEUX +
+              "</option>";
+          }
         });
-        comboboxWorker += "</select>";
-        $(".employer").html(comboboxWorker);
-      });
+        $(".lieuxArriver").append(combobox);
+      }
     });
-  });*/
+  });
 });
