@@ -1,0 +1,55 @@
+Questionnaire XPath
+-------------------
+
+Q1. Fournissez une expression XPath qui, depuis la racine du document,
+retourne l'ensemble des noms de familles des personnes de sexe masculin.
+
+R1. (répondre ici à la Q1)
+
+
+
+
+---------------
+
+Q2. Fournissez une expression XPath qui, depuis la racine du document,
+retourne l'ensemble des numéros de téléphone fixes allemands à usage
+professionnel.
+
+R2. (répondre ici à la Q2)
+
+
+
+
+---------------
+
+Q3. Fournissez une expression XPath qui, depuis la racine du document,
+retourne l'ensemble des dates de naissance des personnes décédées.
+
+R3. (répondre ici à la Q3)
+
+
+
+
+---------------
+
+Q4. Fournissez une expression XPath qui, depuis un élément <person>,
+retourne le nombre de numéros de téléphone et d'adresses électroniques
+de la personne courante
+
+R4. (répondre ici à la Q4)
+
+
+
+
+---------------
+
+Q5. Fournissez une expression XPath qui, depuis un élément <postalcode>,
+retourne le nombre de personnes après (dans l'ordre du document) celle
+dont le code postal est le nœud courant.
+
+R5. (répondre ici à la Q5)
+
+
+
+
+---------------
