@@ -6,8 +6,7 @@ retourne l'ensemble des noms de familles des personnes de sexe masculin.
 
 R1. (répondre ici à la Q1)
 
-/addressbook/persons/person/identity[sex = "MALE"]/lastname
-
+//identity[sex = "MALE"]/lastname
 
 
 ---------------
@@ -18,8 +17,7 @@ professionnel.
 
 R2. (répondre ici à la Q2)
 
-//addressbook/persons/person/addresses[postal[country_id = "DE"]]/phones/phone[@type="LANDLINE" and @use="PROFESSIONAL"]
-
+//addresses[postal[country_id = "DE"]]//phone[@type="LANDLINE" and @use="PROFESSIONAL"]
 
 
 ---------------
@@ -29,7 +27,7 @@ retourne l'ensemble des dates de naissance des personnes décédées.
 
 R3. (répondre ici à la Q3)
 
-//addressbook/persons/person/identity[death != "NULL"]/birth
+//identity[death != "NULL"]/birth
 
 
 ---------------
@@ -40,9 +38,8 @@ de la personne courante
 
 R4. (répondre ici à la Q4)
 Changer les . par la person
-                                   |                                    |
-count(//addressbook/persons/person[.]/addresses/emails/email | //person[.]/addresses/phones/phone)
-
+               |                   |
+count(//person[.]/email | //person[.]//phone)
 
 ---------------
 
@@ -51,8 +48,6 @@ retourne le nombre de personnes après (dans l'ordre du document) celle
 dont le code postal est le nœud courant.
 
 R5. (répondre ici à la Q5)
-Change DATA a une valeur
-                                                                    |
-count(/addressbook/persons//person/addresses/postal/postalcode[.="DATA"]/../../../following-sibling::person/addresses/postal/postalcode)
-
----------------
+Change le 4
+               |
+count(//person[4]//postalcode/../../../following-sibling::person//postalcode)---------------
