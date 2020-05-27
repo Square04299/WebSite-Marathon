@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<?xml-stylesheet type="text/xsl" href= "addressbook.xsl" ?>
+<?xml-stylesheet type="text/xsl" href= "./addressbook.xsl" ?>
 <!-- addressbook.xml -->
 <addressbook xmlns="https://esi-bru.be/WEBR4">
     <persons>
@@ -598,10 +598,12 @@
                     <person_id>p9</person_id>
                     <level>3</level>
                 </relation>
+                <!--
                 <relation>
                     <person_id>p19</person_id>
                     <level>3</level>
                 </relation>
+				-->
                 <relation>
                     <person_id>p5</person_id>
                     <level>1</level>
