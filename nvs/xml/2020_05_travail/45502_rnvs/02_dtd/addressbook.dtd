@@ -1,0 +1,53 @@
+<!--- addressbook.dtd -->
+<!--<!ELEMENT addressbook (persons|countries)*>-->
+<!ELEMENT addressbook (persons,countries)>
+<!ATTLIST addressbook xmlns CDATA #IMPLIED> <!-- rnvs : REQUIRED -->
+<!ELEMENT persons (person)*>
+<!--<!ELEMENT person (identity|addresses|relations)*>-->
+<!ELEMENT person (identity,addresses,relations)*>   <!-- rnvs : multiplicité ko -->
+<!--<!ATTLIST person id CDATA #IMPLIED>-->
+<!ATTLIST person id CDATA #REQUIRED>    <!-- rnvs : ID -->
+<!--<!ELEMENT identity (lastname|firstnames|sex|birth|death)*>-->
+<!ELEMENT identity (lastname,firstnames,sex,birth,death)*>  <!-- rnvs : multiplicité ko -->
+<!ELEMENT lastname (#PCDATA)>
+<!--<!ELEMENT firstnames (firstname)*>-->
+<!ELEMENT firstnames (firstname+)*> <!-- rnvs : multiplicité ko -->
+<!ELEMENT firstname (#PCDATA)>
+<!ELEMENT sex (#PCDATA)>
+<!ELEMENT birth (#PCDATA)>
+<!ELEMENT death (#PCDATA)>
+<!--<!ELEMENT addresses (postal|emails|phones)*>-->
+<!ELEMENT addresses (postal,emails,phones)*>    <!-- rnvs : multiplicité ko -->
+<!--<!ELEMENT postal (country_id|postalcode|city|street|number)*>-->
+<!ELEMENT postal (country_id,postalcode,city,street,number)*>   <!-- rnvs : multiplicité ko -->
+<!ELEMENT country_id (#PCDATA)>
+<!ELEMENT postalcode (#PCDATA)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT street (#PCDATA)>
+<!ELEMENT number (#PCDATA)>
+<!ELEMENT emails (email)*>
+<!ELEMENT email (#PCDATA)>
+<!--<!ATTLIST email use CDATA #IMPLIED>-->
+<!ATTLIST email use (PRIVATE|PROFESSIONAL|OTHER) "PRIVATE"> <!-- rnvs : REQUIRED -->
+<!ELEMENT phones (phone)*>
+<!ELEMENT phone (#PCDATA)>
+<!--use CDATA #IMPLIED-->
+<!ATTLIST phone
+    use (PRIVATE|PROFESSIONAL|OTHER) "PRIVATE"
+    type CDATA #IMPLIED
+>
+<!-- rnvs : REQUIRED (2x) -->   <!-- rnvs : énumération -->
+<!ELEMENT relations (relation)*>
+<!--<!ELEMENT relation (person_id|level)*>-->
+<!ELEMENT relation (person_id,level)*>  <!-- rnvs : multiplicité ko -->
+<!ELEMENT person_id (#PCDATA)>
+<!ELEMENT level (#PCDATA)>
+<!ELEMENT countries (country)*>
+<!--<!ELEMENT country (alpha2code|names|callingcode)*>-->
+<!ELEMENT country (alpha2code,names,callingcode)>
+<!ELEMENT alpha2code (#PCDATA)>
+<!ELEMENT names (name)*>
+<!ELEMENT name (#PCDATA)>
+<!--<!ATTLIST name xml:lang CDATA #IMPLIED>-->
+<!ATTLIST name xml:lang CDATA #REQUIRED>
+<!ELEMENT callingcode (#PCDATA)>
